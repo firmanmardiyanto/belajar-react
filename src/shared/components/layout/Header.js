@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-    import PropTypes from 'prop-types';
-    import logo from '../../images/logo.svg';
+import React/*, {Component}*/
+from 'react'; //kalau pake render baru komponenya diaktifin
+import PropTypes from 'prop-types';
+import logo from '../../images/logo.svg';
 
+/* sebelumna, dibikin pendek
     class Header extends Component {
       // Here you can define your PropTypes.
       static propTypes = {
@@ -10,20 +12,33 @@ import React, { Component } from 'react';
       };
 
       render() {
-        const { 
-          title = 'Welcome to React', 
+        const {
+          title = 'Welcome to React',
           url = 'http://localhost:3000'
         } = this.props;
+    */
 
-        return (
-          <header className="App-header">
+//membuat komponen dengan tanda panah (simple gan)
+const Header = props => {
+    const {
+        title = 'Welcome to React',
+        url = 'http://localhost:3000'
+    } = props;
+
+    return (
+        <header className="App-header">
             <a href={url}>
-              <img src={logo} className="App-logo" alt="logo" />
+                <img src={logo} className="App-logo" alt="logo"/>
             </a>
             <h1 className="App-title">{title}</h1>
-          </header>
-        );
-      }
-    }
+        </header>
+    );
+};
+// } render PropTypes
 
-    export default Header;
+Header.propTypes = {
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string
+};
+
+export default Header;
